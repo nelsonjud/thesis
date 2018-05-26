@@ -12,10 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('pages.home');
+	if (Auth::check()) {
+    	return view('pages.home');
+	}
+
+	return view('auth.login');
     // return view('welcome');
 });
 
+Route::resource('announcement','AnnouncementController');
+
+// Route::get('create-announcement', ['uses' => 'AnnouncementController@create']);
+
+// Route::resource('passports','PassportController');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

@@ -1,0 +1,82 @@
+body, .btn, .form-control {
+	font-size: 14px;
+}
+
+.navbar-brand {
+	font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 1rem;
+    white-space: nowrap;
+}
+
+.card {
+	margin-bottom: 20px;
+}
+
+.pull-right{
+	float:right;
+}
+
+.pull-left{
+	float:left;
+}
+
+.btn-primary, .btn-primary:hover {
+	background-color: #265a88;
+}
+
+.btn-default, .btn-default:hover {
+	background-color: #e0e0e0;
+    border-color: #adadad;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    display: -webkit-inline-box;
+    display: block;
+}
+
+.modal-header .close {
+	margin: auto;
+	margin-top: -2px;
+	padding: unset;
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+
+
+
+
+
+.box-profile {
+	padding: 20px;
+	display: inline-block;
+	width: 100%;
+}
+
+.box-profile .box-profile-photo {
+	width: 150px;
+	float: left;
+}
+
+.box-profile .box-profile-photo .profile-photo {
+    background-size: cover;
+    background-position: center center;
+    width: 96px;
+    height: 96px;
+    border-radius: 56px;
+}
+
+.box-profile .box-profile-info {
+	float: left;
+	padding-left: 20px;
+}

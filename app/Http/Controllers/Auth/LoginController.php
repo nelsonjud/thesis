@@ -31,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -47,9 +47,9 @@ class LoginController extends Controller
      */
     public function username()
     {
-        $identity  = request()->get('identity');
-        $fieldName = filter_var($identity, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-        request()->merge([$fieldName => $identity]);
+        $username  = request()->get('username');
+        $fieldName = filter_var($username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        request()->merge(['username' => $username]);
 
         return $fieldName;
     }
@@ -63,11 +63,11 @@ class LoginController extends Controller
         $this->validate(
             $request,
             [
-                'identity' => 'required|string',
+                'username' => 'required|string',
                 'password' => 'required|string',
             ],
             [
-                'identity.required' => 'Username or email is required',
+                'username.required' => 'Username or email is required',
                 'password.required' => 'Password is required',
             ]
         );
@@ -79,7 +79,7 @@ class LoginController extends Controller
      */
     protected function sendFailedLoginResponse(Request $request)
     {
-        // $request->session()->put('login_error', trans('auth.failed'));
+        $request->session()->flash('login_error', trans('auth.failed'));
         throw ValidationException::withMessages(
             [
                 'error' => [trans('auth.failed')],
