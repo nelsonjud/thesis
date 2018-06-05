@@ -6,19 +6,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\User;
 
-class Announcement extends Authenticatable
+class Employees extends Authenticatable
 {
     use SoftDeletes;
 
     public $force_null = [];
 
-    protected $table = 'users_announcements';
+    protected $table = 'Employees';
 
     protected $dates = ['deleted_at'];
 
     protected $hidden = ['user_id', 'created_at','updated_at','deleted_at'];
 
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['first_name', 'middle_name', 'last_name', 'birthday', 'contact', 'gender'];
 
     public function user()
     {

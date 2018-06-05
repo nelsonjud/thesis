@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Announcement;
+use App\Models\Employees;
 
 class User extends Authenticatable
 {
@@ -26,4 +28,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function setPasswordAttribute($value)
+    {
+        if ($value)
+        {
+            $this->attributes['password'] = \Hash::make($value);
+        }
+    }
+
+    public function announcement()
+    {
+        return $this->hasMany('App\Models\Announcement');
+    }
+
+    public function employees()
+    {
+        return $this->hasOne('App\Models\Employees');
+    }
 }

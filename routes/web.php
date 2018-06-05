@@ -11,13 +11,19 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['uses' => 'AnnouncementController@index'], function () {
+	if (!Auth::check()) {
+		return view('auth.login');
+	}
+
+});
+
+Route::get('/create/announcement', function () {
 	if (Auth::check()) {
-    	return view('pages.home');
+    	return view('pages.createAnnouncement');
 	}
 
 	return view('auth.login');
-    // return view('welcome');
 });
 
 Route::resource('announcement','AnnouncementController');

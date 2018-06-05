@@ -13,12 +13,12 @@ class CreateAnnouncement extends Migration
      */
     public function up()
     {
-        Schema::create('users_announcement', function(Blueprint $table)
+        Schema::create('users_announcements', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('title')->nullable();
-            $table->string('content')->nullable();
+            $table->text('content')->nullable();
             $table->timestamps();
             $table->softDeletes()->nullable();
 
@@ -33,6 +33,6 @@ class CreateAnnouncement extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_announcement');
+        Schema::dropIfExists('users_announcements');
     }
 }

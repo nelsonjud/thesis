@@ -2,10 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Errors;
-
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Support\Facades\Validator;
 
 class AnnouncementRequest extends FormRequest
 {
@@ -20,7 +18,7 @@ class AnnouncementRequest extends FormRequest
         $method = $this->method();
 
         $rules = [
-            'title'     => 'required|min:8|max:32',
+            'title'     => 'required|min:2|max:32',
             'content'   => 'required'
         ];
 
